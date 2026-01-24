@@ -1,0 +1,1473 @@
+<!doctype html>
+<html lang="th" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio นักเรียน ปวช.3 คอมพิวเตอร์ธุรกิจ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100%;
+        }
+        
+        .page { display: none; }
+        .page.active { display: block; }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1) 0%, rgba(15, 52, 96, 0.3) 100%);
+            border-radius: 20px;
+            padding: 60px 30px;
+            margin: 20px 0;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(233, 69, 96, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        .nav-custom {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: transparent;
+            border: 1px solid rgba(233, 69, 96, 0.5);
+            color: #e94560;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-btn:hover, .nav-btn.active {
+            background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+        }
+        
+        .student-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(233, 69, 96, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .student-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #e94560, #ff6b6b, #e94560);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .student-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(233, 69, 96, 0.5);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.2);
+        }
+        
+        .student-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin: 0 auto 15px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+        
+        .student-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .btn-portfolio {
+            background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-portfolio:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+            color: white;
+        }
+        
+        .btn-back {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .section-title {
+            color: #e94560;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #e94560, #ff6b6b);
+            border-radius: 3px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(233, 69, 96, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .skill-badge {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(255, 107, 107, 0.2) 100%);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            color: #ff6b6b;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 5px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+        
+        .work-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(233, 69, 96, 0.15);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .text-accent { color: #e94560; }
+        .text-light-custom { color: rgba(255, 255, 255, 0.8); }
+        .text-muted-custom { color: rgba(255, 255, 255, 0.5); }
+        
+        .image-placeholder {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1) 0%, rgba(15, 52, 96, 0.3) 100%);
+            border: 2px dashed rgba(233, 69, 96, 0.3);
+            border-radius: 15px;
+            padding: 60px 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        .image-container {
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1) 0%, rgba(15, 52, 96, 0.3) 100%);
+            border: 2px dashed rgba(233, 69, 96, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .image-container.no-image::after {
+            content: '📸 ใส่รูปภาพที่นี่';
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.2rem;
+        }
+        
+        .teacher-card {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1) 0%, rgba(15, 52, 96, 0.2) 100%);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .teacher-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto 20px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+        
+        .teacher-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .creator-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(233, 69, 96, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .creator-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            margin: 0 auto 15px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+        
+        .creator-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .portfolio-detail-header {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.15) 0%, rgba(15, 52, 96, 0.3) 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .portfolio-avatar-large {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+        
+        .portfolio-avatar-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .work-image-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1) 0%, rgba(15, 52, 96, 0.3) 100%);
+            border: 2px dashed rgba(233, 69, 96, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        
+        .work-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .work-image-container.no-image::after {
+            content: '🖼️ รูปผลงาน';
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+        }
+        
+        footer {
+            background: rgba(26, 26, 46, 0.95);
+            border-top: 1px solid rgba(233, 69, 96, 0.3);
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body class="h-full"><!-- Navigation -->
+  <nav class="nav-custom">
+   <div class="container">
+    <div class="d-flex flex-wrap justify-content-center align-items-center"><button class="nav-btn active" onclick="showPage('home')">🏠 หน้าแรก</button> <button class="nav-btn" onclick="showPage('about')">📚 เกี่ยวกับสาขา</button> <button class="nav-btn" onclick="showPage('students')">👥 รายชื่อนักเรียน</button> <button class="nav-btn" onclick="showPage('teacher')">👨‍🏫 อาจารย์ที่ปรึกษา</button> <button class="nav-btn" onclick="showPage('contact')">📞 ติดต่อ/เครดิต</button>
+    </div>
+   </div>
+  </nav><!-- ==================== หน้าแรก (Home) ==================== -->
+  <div id="home" class="page active">
+   <div class="container py-4">
+    <div class="hero-section text-center">
+     <h1 class="text-white mb-3" style="font-size: 2.2rem; font-weight: 700; position: relative; z-index: 1;" id="main-title">🎓 เว็บไซต์รวบรวม Portfolio ของนักเรียน</h1>
+     <h2 class="text-accent mb-4" style="font-size: 1.5rem; position: relative; z-index: 1;">ชั้น ปวช.3 แผนกวิชาคอมพิวเตอร์ธุรกิจ</h2>
+     <h3 class="text-light-custom mb-4" style="font-size: 1.2rem; position: relative; z-index: 1;" id="school-display">วิทยาลัยเทคนิคเพชรบูรณ์</h3>
+     <p class="text-muted-custom mb-4" style="max-width: 600px; margin: 0 auto; position: relative; z-index: 1;">เว็บไซต์นี้จัดทำขึ้นเพื่อรวบรวมผลงานและทักษะของนักเรียนชั้น ปวช.3 แผนกวิชาคอมพิวเตอร์ธุรกิจ เพื่อเป็นการแสดงความสามารถและเตรียมความพร้อม สำหรับการศึกษาต่อหรือการทำงานในอนาคต</p>
+     <div class="mx-auto" style="max-width: 600px; position: relative; z-index: 1; margin-top: 30px; margin-bottom: 30px;">
+      <div class="image-container" id="home-image"><!-- 
+                            📸 วิธีใส่รูปภาพ:
+                            1. เปิดไฟล์โค้ดนี้
+                            2. หาบรรทัด homeImage: "" ในส่วน websiteImages
+                            3. ใส่ URL รูปภาพระหว่าง "" เช่น homeImage: "https://example.com/image.jpg"
+                            4. บันทึกไฟล์และรีเฟรชหน้าเว็บ
+                        -->
+      </div>
+      
+     </div><button class="btn-portfolio btn-lg mt-3" onclick="showPage('students')" style="position: relative; z-index: 1;"> 👥 ดู Portfolio นักเรียนทั้งหมด </button>
+    </div>
+    <div class="row mt-5">
+     <div class="col-md-4 mb-4">
+      <div class="info-card text-center h-100"><span style="font-size: 3rem;">👨‍🎓</span>
+       <h4 class="text-white mt-3">37 คน</h4>
+       <p class="text-muted-custom mb-0">จำนวนนักเรียนทั้งหมด</p>
+      </div>
+     </div>
+     <div class="col-md-4 mb-4">
+      <div class="info-card text-center h-100"><span style="font-size: 3rem;">💼</span>
+       <h4 class="text-white mt-3">คอมพิวเตอร์ธุรกิจ</h4>
+       <p class="text-muted-custom mb-0">แผนกวิชา</p>
+      </div>
+     </div>
+     <div class="col-md-4 mb-4">
+      <div class="info-card text-center h-100"><span style="font-size: 3rem;">📅</span>
+       <h4 class="text-white mt-3" id="year-display">2568</h4>
+       <p class="text-muted-custom mb-0">ปีการศึกษา</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div><!-- ==================== หน้าเกี่ยวกับสาขา (About) ==================== -->
+  <div id="about" class="page">
+   
+    <h2 class="section-title">📚 เกี่ยวกับสาขา / ห้องเรียน</h2>
+    <div class="row mt-4">
+     <div class="col-lg-6 mb-4">
+      <div class="info-card h-100">
+       <h4 class="text-accent mb-4">🏫 ข้อมูลสถานศึกษา</h4>
+       <div class="text-white">
+
+    <div class="row mb-">
+        <div class="col-4 fw-bold">ชื่อสถานศึกษา:</div>
+        <div class="col-8">วิทยาลัยเทคนิคเพชรบูรณ์</div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-4 fw-bold">ระดับชั้น:</div>
+        <div class="col-8">ปวช.3</div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-4 fw-bold">แผนกวิชา:</div>
+        <div class="col-8">คอมพิวเตอร์ธุรกิจ</div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-4 fw-bold">ปีการศึกษา:</div>
+        <div class="col-8">2568</div>
+    </div>
+</div>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="col-lg-6 mb-4">
+      <div class="info-card h-100">
+       <h4 class="text-accent mb-4">🎯 วัตถุประสงค์ของการจัดทำเว็บไซต์</h4>
+       <ul class="text-light-custom" style="line-height: 2;">
+        <li>เพื่อรวบรวมผลงานและทักษะของนักเรียนในห้อง</li>
+        <li>เพื่อเป็นการแสดงความสามารถของนักเรียนแต่ละคน</li>
+        <li>เพื่อเตรียมความพร้อมสำหรับการศึกษาต่อหรือการทำงาน</li>
+        <li>เพื่อฝึกทักษะการนำเสนอตนเองผ่านสื่อดิจิทัล</li>
+        <li>เพื่อเป็นแหล่งข้อมูลสำหรับผู้ที่สนใจรับนักเรียนเข้าทำงาน</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="info-card mt-4">
+     <h4 class="text-accent mb-4">💻 เกี่ยวกับแผนกคอมพิวเตอร์ธุรกิจ</h4>
+     <p class="text-light-custom mb-4">แผนกวิชาคอมพิวเตอร์ธุรกิจ มุ่งเน้นผลิตบุคลากรที่มีความรู้ความสามารถทางด้านคอมพิวเตอร์ และเทคโนโลยีสารสนเทศ สามารถประยุกต์ใช้ในงานธุรกิจได้อย่างมีประสิทธิภาพ นักเรียนจะได้เรียนรู้ทั้งภาคทฤษฎีและภาคปฏิบัติ ครอบคลุมทักษะที่จำเป็นในยุคดิจิทัล</p>
+     <div class="image-container" id="about-image"></div>
+   </div>
+  </div><!-- ==================== หน้ารายชื่อนักเรียน (Students List) ==================== -->
+  <div id="students" class="page">
+   
+    <h2 class="section-title">👥 รายชื่อนักเรียนทั้งหมด</h2>
+    <p class="text-muted-custom mb-4">นักเรียนชั้น ปวช.3 แผนกวิชาคอมพิวเตอร์ธุรกิจ จำนวน 37 คน</p>
+    <div class="row" id="students-list"><!-- Student cards will be rendered here by JavaScript -->
+    </div>
+   </div>
+  </div><!-- ==================== หน้า Portfolio รายบุคคล ==================== -->
+  <div id="portfolio-detail" class="page">
+   <div class="container py-4"><button class="btn-back" onclick="showPage('students')">← กลับหน้ารายชื่อนักเรียน</button>
+    <div id="portfolio-content"><!-- Portfolio detail will be rendered here by JavaScript -->
+    </div>
+   </div>
+  </div><!-- ==================== หน้าอาจารย์ที่ปรึกษา (Teacher) ==================== -->
+  <div id="teacher" class="page">
+   
+    <h2 class="section-title">👨‍🏫 อาจารย์ที่ปรึกษา</h2>
+    <div class="row justify-content-center mt-4">
+     <div class="col-lg-6">
+      <div class="teacher-card">
+       <div class="teacher-avatar" id="teacher-avatar">
+        👨‍🏫
+       </div>
+       <h3 class="text-white mb-2">นายขวัญชัย จันทร์ฤทธิ์</h3>
+       <p class="text-accent mb-3">อาจารย์ที่ปรึกษา</p>
+       <div class="text-light-custom">
+        <p class="mb-1"><strong>แผนกวิชา:</strong> คอมพิวเตอร์ธุรกิจ</p>
+        <p class="mb-0"><strong>สถานศึกษา:</strong> วิทยาลัยเทคนิคเพชรบูรณ์</p>
+       </div>
+       
+      </div>
+     </div>
+    </div>
+   </div>
+  </div><!-- ==================== หน้าติดต่อ / เครดิต (Contact) ==================== -->
+  <div id="contact" class="page">
+   
+    <h2 class="section-title">📞 ติดต่อ / เครดิต</h2>
+    <div class="row justify-content-center mt-4">
+     <div class="col-lg-8">
+      <div class="info-card">
+       <h4 class="text-accent mb-4 text-center">👨‍💻 ผู้จัดทำเว็บไซต์</h4>
+       <div class="row">
+        <div class="col-md-6 mb-4">
+         <div class="creator-card h-100">
+          <div class="creator-avatar" id="creator1-avatar">
+           👨‍💻
+          </div>
+          <h5 class="text-white">นายธนภัทร โถปาน</h5>
+          <p class="text-accent mb-2">โอเว่น</p>
+          <p class="text-muted-custom mb-3">ชั้น ปวช. 3/1</p>
+          
+         </div>
+        </div>
+        <div class="col-md-6 mb-4">
+         <div class="creator-card h-100">
+          <div class="creator-avatar" id="creator2-avatar">
+           👨‍💻
+          </div>
+          <h5 class="text-white">นายศตายุ แก้วม่วง</h5>
+          <p class="text-accent mb-2">ดิว</p>
+          <p class="text-muted-custom mb-3">ชั้น ปวช. 3/1</p>
+          
+         </div>
+        </div>
+       </div>
+       <div class="text-center mt-4 pt-4" style="border-top: 1px solid rgba(233, 69, 96, 0.2);">
+        <p class="text-light-custom mb-1"><strong>ปีการศึกษา:</strong> <span id="contact-year">2568</span></p>
+        <p class="text-light-custom mb-1"><strong>ชั้น/ห้อง:</strong> ปวช. 3/1</p>
+        <p class="text-light-custom mb-0"><strong>แผนกวิชา:</strong> คอมพิวเตอร์ธุรกิจ</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div><!-- Footer -->
+  <footer class="text-center">
+   <div class="container">
+    <p class="text-muted-custom mb-0">© <span id="footer-year">2568</span> Portfolio นักเรียน ปวช.3 คอมพิวเตอร์ธุรกิจ | วิทยาลัยเทคนิคเพชรบูรณ์</p>
+   </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+        // ==================== รูปภาพของเว็บไซต์ (แก้ไขที่นี่) ====================
+        const websiteImages = {
+            homeImage: "image/Screenshot_2026-01-22-12-40-21-11_1c337646f29875672b5a61192b9010f9.jpg", // รูปหน้าแรก - ใส่ URL รูปภาพที่นี่
+            aboutImage: "image/ACV3.jpg", // รูปหน้าเกี่ยวกับสาขา - ใส่ URL รูปภาพที่นี่
+            teacherImage: "", // รูปอาจารย์ที่ปรึกษา - ใส่ URL รูปภาพที่นี่
+            creator1Image: "image/1OWEN.jpg", // รูปผู้จัดทำคนที่ 1 (โอเว่น) - ใส่ URL รูปภาพที่นี่
+            creator2Image: "image/1DEW.jpg" // รูปผู้จัดทำคนที่ 2 (ดิว) - ใส่ URL รูปภาพที่นี่
+        };
+
+        // ==================== ข้อมูลนักเรียนทั้งหมด (แก้ไขรายบุคคลได้ที่นี่) ====================
+        const studentsData = [
+            {
+                id: 1,
+                name: "นางสาวมนัญญา มีชม",
+                nickname: "ก้านหลิว",
+                phone: "0969153431",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "งานเอกสารและการจัดการข้อมูล",
+                image: "image/Liw.jpg", // ใส่ URL รูปภาพของนักเรียนที่นี่
+                skills: ["Microsoft Office", "การพิมพ์เอกสาร", "การจัดการไฟล์"],
+                works: [
+                    { 
+                        name: "เอกสารนำเสนอโครงงาน", 
+                        type: "งานเอกสาร", 
+                        description: "จัดทำเอกสาร PowerPoint สำหรับนำเสนอโครงงาน",
+                        image: "" // ใส่ URL รูปผลงานที่นี่
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: "นางสาวสิริวิมล คำกุ้ง",
+                nickname: "บิว",
+                phone: "0989245808",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การออกแบบกราฟิก",
+                image: "image/BewYai.jpg",
+                skills: ["Canva", "Photoshop เบื้องต้น", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "โปสเตอร์ประชาสัมพันธ์", 
+                        type: "งานออกแบบ", 
+                        description: "ออกแบบโปสเตอร์สำหรับกิจกรรมในวิทยาลัย",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 3,
+                name: "นางสาวเพชรรัตน์ สุขยา",
+                nickname: "เพชร",
+                phone: "0962024488",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การทำเว็บไซต์",
+                image: "image/PHET.jpg",
+                skills: ["HTML", "CSS", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "เว็บไซต์ส่วนตัว", 
+                        type: "เว็บไซต์", 
+                        description: "สร้างเว็บไซต์แนะนำตัวเองด้วย HTML/CSS",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 4,
+                name: "นางสาวไพลิน สุขยา",
+                nickname: "ลิน",
+                phone: "0840714334",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "งานบัญชีและการเงิน",
+                image: "image/LIN.jpg",
+                skills: ["Excel", "การคำนวณ", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "ตารางบัญชีรายรับ-รายจ่าย", 
+                        type: "งานเอกสาร", 
+                        description: "สร้างตาราง Excel สำหรับจัดการบัญชี",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 5,
+                name: "นางสาวนภัสวรรณ กิจรุ่งเรืองวงศ์",
+                nickname: "ฟ้า",
+                phone: "0969256963",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การออกแบบและสร้างสรรค์",
+                image: "image/Fah.jpg",
+                skills: ["Canva", "การถ่ายภาพ", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "อินโฟกราฟิกความรู้", 
+                        type: "งานออกแบบ", 
+                        description: "ออกแบบอินโฟกราฟิกเพื่อการศึกษา",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 6,
+                name: "นายศตายุ แก้วม่วง",
+                nickname: "ดิว",
+                phone: "0650143365",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การพัฒนาเว็บไซต์",
+                image: "image/1DEW.jpg",
+                skills: ["HTML", "CSS", "JavaScript เบื้องต้น", "Bootstrap"],
+                works: [
+                    { 
+                        name: "เว็บไซต์ Portfolio ห้องเรียน", 
+                        type: "เว็บไซต์", 
+                        description: "ร่วมพัฒนาเว็บไซต์รวบรวม Portfolio นักเรียน",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 7,
+                name: "นายชนะชัย แก้วอินทร์",
+                nickname: "สิง",
+                phone: "0631538028",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การซ่อมบำรุงคอมพิวเตอร์",
+                image: "image/Zhing.jpg",
+                skills: ["Hardware", "การติดตั้งโปรแกรม", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "คู่มือการดูแลคอมพิวเตอร์", 
+                        type: "งานเอกสาร", 
+                        description: "จัดทำคู่มือการดูแลรักษาคอมพิวเตอร์เบื้องต้น",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 8,
+                name: "นางสาวอลิษา คำภาลอย",
+                nickname: "นุ่น",
+                phone: "0631641305",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "งานธุรการและเอกสาร",
+                image: "image/NUN.jpg",
+                skills: ["Microsoft Word", "Excel", "การจัดการเอกสาร"],
+                works: [
+                    { 
+                        name: "แบบฟอร์มเอกสารสำนักงาน", 
+                        type: "งานเอกสาร", 
+                        description: "ออกแบบแบบฟอร์มเอกสารสำหรับสำนักงาน",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 9,
+                name: "นายสิทธิ์ธัชศักดิ์ คุ้มศรี",
+                nickname: "พีเจ",
+                phone: "0947184222",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "เทคโนโลยีและนวัตกรรม",
+                image: "image/JJ.jpg",
+                skills: ["Microsoft Office", "การนำเสนอ", "Social Media"],
+                works: [
+                    { 
+                        name: "คลิปวิดีโอแนะนำสาขา", 
+                        type: "มัลติมีเดีย", 
+                        description: "ตัดต่อวิดีโอแนะนำแผนกคอมพิวเตอร์ธุรกิจ",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 10,
+                name: "นางสาวพรนภา จรรยาเลิศ",
+                nickname: "บิว",
+                phone: "0613729463",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การออกแบบสื่อ",
+                image: "image/BEWLEK.jpg",
+                skills: ["Canva", "PowerPoint", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "สไลด์นำเสนอผลงาน", 
+                        type: "งานเอกสาร", 
+                        description: "ออกแบบสไลด์นำเสนอสำหรับโครงงาน",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 11,
+                name: "นายธนกฤต จันทร์พิลา",
+                nickname: "โอโม่",
+                phone: "0824102306",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การเขียนโปรแกรม",
+                image: "image/MO.jpg",
+                skills: ["Python เบื้องต้น", "HTML", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "โปรแกรมคำนวณอย่างง่าย", 
+                        type: "โปรแกรม", 
+                        description: "เขียนโปรแกรมคำนวณด้วย Python",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 12,
+                name: "นายรัฐศาสตร์ จันหีบ",
+                nickname: "แบงค์",
+                phone: "0845083320",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การจัดการธุรกิจ",
+                image: "image/Bank.jpg",
+                skills: ["Excel", "การวิเคราะห์ข้อมูล", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "แผนธุรกิจร้านค้าออนไลน์", 
+                        type: "งานเอกสาร", 
+                        description: "จัดทำแผนธุรกิจสำหรับร้านค้าออนไลน์",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 13,
+                name: "นางสาวพิมพ์นิภา ใจแสง",
+                nickname: "กุล",
+                phone: "0961091006",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การออกแบบกราฟิก",
+                image: "image/GuL.jpg",
+                skills: ["Photoshop", "Canva", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "โลโก้ร้านค้า", 
+                        type: "งานออกแบบ", 
+                        description: "ออกแบบโลโก้สำหรับร้านค้าจำลอง",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 14,
+                name: "นางสาวแทนคุณ ณ วิเชียร",
+                nickname: "แทน",
+                phone: "0995529252",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การตลาดออนไลน์",
+                image: "image/TAN.jpg",
+                skills: ["Social Media Marketing", "Canva", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "แคมเปญโซเชียลมีเดีย", 
+                        type: "การตลาด", 
+                        description: "วางแผนและออกแบบแคมเปญโฆษณาบน Social Media",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 15,
+                name: "นางสาวธาราพร ด้วงธรรม",
+                nickname: "ผัดไท",
+                phone: "0829355235",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "งานบริการลูกค้า",
+                image: "image/PADTHAI.jpg",
+                skills: ["Microsoft Office", "การสื่อสาร", "การพิมพ์"],
+                works: [
+                    { 
+                        name: "คู่มือการบริการลูกค้า", 
+                        type: "งานเอกสาร", 
+                        description: "จัดทำคู่มือมาตรฐานการบริการลูกค้า",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 16,
+                name: "นายสิรภัทร ตะต้องใจ",
+                nickname: "โฟบ",
+                phone: "0640249707",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "เทคโนโลยีสารสนเทศ",
+                image: "image/FORB.png",
+                skills: ["Network เบื้องต้น", "Microsoft Office", "การติดตั้งระบบ"],
+                works: [
+                    { 
+                        name: "รายงานระบบเครือข่าย", 
+                        type: "งานเอกสาร", 
+                        description: "จัดทำรายงานเกี่ยวกับระบบเครือข่ายคอมพิวเตอร์",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 17,
+                name: "นางสาวกรพินท์ เตียนประโยชน์",
+                nickname: "แตงโม",
+                phone: "0638235070",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การออกแบบเว็บไซต์",
+                image: "image/TNAGMO.jpg",
+                skills: ["HTML", "CSS", "Canva", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "เว็บไซต์ร้านค้าจำลอง", 
+                        type: "เว็บไซต์", 
+                        description: "ออกแบบหน้าเว็บไซต์ร้านค้าออนไลน์",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 18,
+                name: "นางสาววรรณิศา เถื่อนศรี",
+                nickname: "นิว",
+                phone: "0972734062",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "งานเลขานุการ",
+                image: "image/NEW.jpg",
+                skills: ["Microsoft Office", "การจดบันทึก", "การจัดการเอกสาร"],
+                works: [
+                    { 
+                        name: "รายงานการประชุม", 
+                        type: "งานเอกสาร", 
+                        description: "จัดทำรายงานการประชุมและบันทึกข้อความ",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 19,
+                name: "นายอภิวัฒน์ ทรงไทย",
+                nickname: "เอส",
+                phone: "0841019502",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การพัฒนาซอฟต์แวร์",
+                image: "image/EST.jpg",
+                skills: ["Python", "HTML", "CSS", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "แอปพลิเคชันจัดการข้อมูล", 
+                        type: "โปรแกรม", 
+                        description: "พัฒนาโปรแกรมจัดการข้อมูลอย่างง่าย",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 20,
+                name: "นายพฤฒ เที่ยงตรง",
+                nickname: "พับ",
+                phone: "0863218514",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การวิเคราะห์ข้อมูล",
+                image: "image/PLUB.jpg",
+                skills: ["Excel", "การทำกราฟ", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "Dashboard ข้อมูลยอดขาย", 
+                        type: "งานเอกสาร", 
+                        description: "สร้าง Dashboard ด้วย Excel",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 21,
+                name: "นางสาวรัดเกล้า แท่นทอง",
+                nickname: "แพน",
+                phone: "0630649472",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การออกแบบสื่อประชาสัมพันธ์",
+                image: "image/Pan.jpg",
+                skills: ["Canva", "Photoshop", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "แบนเนอร์โฆษณา", 
+                        type: "งานออกแบบ", 
+                        description: "ออกแบบแบนเนอร์สำหรับโฆษณาออนไลน์",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 22,
+                name: "นางสาวจิรัชญา นวลอ่อน",
+                nickname: "มนต์",
+                phone: "0882804524",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "งานบริหารสำนักงาน",
+                image: "image/MOL.jpg",
+                skills: ["Microsoft Office", "การจัดการ", "การสื่อสาร"],
+                works: [
+                    { 
+                        name: "ระบบจัดการตารางนัดหมาย", 
+                        type: "งานเอกสาร", 
+                        description: "สร้างระบบจัดการตารางนัดหมายด้วย Excel",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 23,
+                name: "นายธนภัทร นันตา",
+                nickname: "ต้า",
+                phone: "808211311",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การถ่ายภาพและวิดีโอ",
+                image: "image/TA.jpg",
+                skills: ["การถ่ายภาพ", "ตัดต่อวิดีโอ", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "วิดีโอสารคดีสั้น", 
+                        type: "มัลติมีเดีย", 
+                        description: "ถ่ายทำและตัดต่อวิดีโอสารคดีสั้น",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 24,
+                name: "นางสาวจุฑาทิพย์ บุญถา",
+                nickname: "ออม",
+                phone: "0806063471",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การจัดการการเงิน",
+                image: "image/OOM.jpg",
+                skills: ["Excel", "การบัญชีเบื้องต้น", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "สมุดบัญชีดิจิทัล", 
+                        type: "งานเอกสาร", 
+                        description: "สร้างสมุดบัญชีรายรับ-รายจ่ายด้วย Excel",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 25,
+                name: "นางสาวธัญกร พรมสุข",
+                nickname: "พีน",
+                phone: "0616093393",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การตลาดดิจิทัล",
+                image: "image/PEEN.jpg",
+                skills: ["Social Media", "Canva", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "แผนการตลาดออนไลน์", 
+                        type: "งานเอกสาร", 
+                        description: "วางแผนกลยุทธ์การตลาดบนโซเชียลมีเดีย",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 26,
+                name: "นายอติคุณ พัฒนะสันติ",
+                nickname: "ฟอร์ด",
+                phone: "0855194966",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การเขียนโปรแกรม",
+                image: "image/Ford.jpg",
+                skills: ["JavaScript", "HTML", "CSS", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "เว็บแอปพลิเคชัน", 
+                        type: "เว็บไซต์", 
+                        description: "พัฒนาเว็บแอปพลิเคชันอย่างง่าย",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 27,
+                name: "นายธนเดช โภชนุกูล",
+                nickname: "พีพี",
+                phone: "0902673725",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การจัดการฐานข้อมูล",
+                image: "image/PP.jpg",
+                skills: ["Excel", "Access เบื้องต้น", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "ระบบฐานข้อมูลสินค้า", 
+                        type: "ฐานข้อมูล", 
+                        description: "ออกแบบฐานข้อมูลสินค้าด้วย Access",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 28,
+                name: "นายศุภกร วรรณพฤกษ์",
+                nickname: "ไบร์ท",
+                phone: "0644539182",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การออกแบบ UI/UX",
+                image: "image/BRIGHT.jpg",
+                skills: ["Figma เบื้องต้น", "Canva", "HTML", "CSS"],
+                works: [
+                    { 
+                        name: "ออกแบบ UI แอปพลิเคชัน", 
+                        type: "งานออกแบบ", 
+                        description: "ออกแบบหน้าจอแอปพลิเคชันมือถือ",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 29,
+                name: "นางสาววิภารัตน์ ศรียากุล",
+                nickname: "ปาย",
+                phone: "0967099460",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "งานประชาสัมพันธ์",
+                image: "image/PAI.jpg",
+                skills: ["การเขียนข่าว", "Canva", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "ข่าวประชาสัมพันธ์วิทยาลัย", 
+                        type: "งานเอกสาร", 
+                        description: "เขียนข่าวประชาสัมพันธ์กิจกรรมวิทยาลัย",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 30,
+                name: "นางสาววรัทยา สนเผือก",
+                nickname: "โปรดปราณ",
+                phone: "0994875315",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การบริการลูกค้าออนไลน์",
+                image: "image/ProdPlan.jpg",
+                skills: ["การสื่อสาร", "Social Media", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "คู่มือการตอบแชทลูกค้า", 
+                        type: "งานเอกสาร", 
+                        description: "จัดทำคู่มือมาตรฐานการตอบแชทลูกค้า",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 31,
+                name: "นางสาวน้ำทิพย์ สร้อยมี",
+                nickname: "ฟ้าง",
+                phone: "0806786020",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การออกแบบนามบัตร",
+                image: "image/FANG.jpg",
+                skills: ["Canva", "Photoshop", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "ชุดนามบัตรธุรกิจ", 
+                        type: "งานออกแบบ", 
+                        description: "ออกแบบนามบัตรสำหรับธุรกิจต่างๆ",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 32,
+                name: "นางสาวเกศวดี สอนโพธิ์ตรุ",
+                nickname: "เนย",
+                phone: "0932460481",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การจัดการร้านค้าออนไลน์",
+                image: "image/NOEY.jpg",
+                skills: ["E-commerce", "การถ่ายภาพสินค้า", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "ร้านค้าออนไลน์จำลอง", 
+                        type: "E-commerce", 
+                        description: "สร้างและจัดการร้านค้าออนไลน์บน Platform ต่างๆ",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 33,
+                name: "นายธีรภัทร สุขแดง",
+                nickname: "เฟรม",
+                phone: "0963700272",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การตัดต่อวิดีโอ",
+                image: "image/Frame.jpg",
+                skills: ["Premiere Pro เบื้องต้น", "CapCut", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "วิดีโอโปรโมทสินค้า", 
+                        type: "มัลติมีเดีย", 
+                        description: "ตัดต่อวิดีโอโปรโมทสินค้าสำหรับโซเชียลมีเดีย",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 34,
+                name: "นางสาวชญานิศ เหลืองศิริเธียร",
+                nickname: "อาย",
+                phone: "0969369272",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การทำ Content",
+                image: "image/EYE.jpg",
+                skills: ["การเขียน Content", "Canva", "Social Media"],
+                works: [
+                    { 
+                        name: "Content สำหรับ Social Media", 
+                        type: "การตลาด", 
+                        description: "สร้าง Content สำหรับโปรโมทบน Social Media",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 35,
+                name: "นางสาวกมลชนก อัตตะชีวะ",
+                nickname: "เจน",
+                phone: "0863603038",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การบริหารจัดการองค์กร",
+                image: "image/Jane.jpg",
+                skills: ["Microsoft Office", "การวางแผน", "การนำเสนอ"],
+                works: [
+                    { 
+                        name: "แผนการจัดการองค์กร", 
+                        type: "งานเอกสาร", 
+                        description: "จัดทำแผนการบริหารจัดการองค์กรจำลอง",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 36,
+                name: "นางสาวพุทธรักษา อินพินิจ",
+                nickname: "มิลค์",
+                phone: "0930723372",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การออกแบบเมนูอาหาร",
+                image: "image/Milk.jpg",
+                skills: ["Canva", "การถ่ายภาพอาหาร", "Microsoft Office"],
+                works: [
+                    { 
+                        name: "เมนูอาหารดิจิทัล", 
+                        type: "งานออกแบบ", 
+                        description: "ออกแบบเมนูอาหารสำหรับร้านอาหาร",
+                        image: ""
+                    }
+                ]
+            },
+            {
+                id: 37,
+                name: "นายธนภัทร โถปาน",
+                nickname: "โอเว่น",
+                phone: "0804706631",
+                level: "ปวช.3 / คอมพิวเตอร์ธุรกิจ",
+                interest: "การพัฒนาเว็บไซต์",
+                image: "image/OWEN.jpg",
+                skills: ["HTML", "CSS", "JavaScript", "Bootstrap", "PHP เบื้องต้น"],
+                works: [
+                    { 
+                        name: "เว็บไซต์ Portfolio ห้องเรียน", 
+                        type: "เว็บไซต์", 
+                        description: "ร่วมพัฒนาเว็บไซต์รวบรวม Portfolio นักเรียน",
+                        image: ""
+                    },
+                    { 
+                        name: "เว็บไซต์แนะนำตัว", 
+                        type: "เว็บไซต์", 
+                        description: "สร้างเว็บไซต์ Portfolio ส่วนตัว",
+                        image: ""
+                    }
+                ]
+            }
+        ];
+
+        // ==================== Default Config ====================
+        const defaultConfig = {
+            site_title: "เว็บไซต์รวบรวม Portfolio ของนักเรียน",
+            school_name: "วิทยาลัยเทคนิคเพชรบูรณ์",
+            academic_year: "2568",
+            primary_color: "#e94560",
+            secondary_color: "#ff6b6b",
+            background_color: "#1a1a2e",
+            text_color: "#ffffff",
+            accent_color: "#0f3460"
+        };
+
+        let currentPage = 'home';
+
+        // ==================== Render Image or Placeholder ====================
+        function renderImage(containerId, imageUrl, placeholderIcon = '📸', placeholderText = 'ใส่รูปภาพที่นี่') {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            if (imageUrl && imageUrl.trim() !== '') {
+                container.innerHTML = `<img src="${imageUrl}" alt="รูปภาพ" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.display='none'; this.parentElement.innerHTML='<span style=\\'font-size: 2rem;\\'>${placeholderIcon}</span><p class=\\'mt-2 mb-0\\'>${placeholderText}</p>';">`;
+                container.classList.remove('no-image');
+            } else {
+                container.innerHTML = `<span style="font-size: 2rem;">${placeholderIcon}</span><p class="mt-2 mb-0">${placeholderText}</p>`;
+                container.classList.add('no-image');
+            }
+        }
+
+        // ==================== Page Navigation ====================
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const activeBtn = document.querySelector(`.nav-btn[onclick="showPage('${pageId}')"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+            
+            currentPage = pageId;
+            
+            // Render images when pages are shown
+            if (pageId === 'home') {
+                renderImage('home-image', websiteImages.homeImage, '📸', 'รูปภาพรวมของห้อง/กิจกรรม');
+            } else if (pageId === 'about') {
+                renderImage('about-image', websiteImages.aboutImage, '📸', 'รูปภาพแผนกคอมพิวเตอร์ธุรกิจ');
+            } else if (pageId === 'teacher') {
+                if (websiteImages.teacherImage && websiteImages.teacherImage.trim() !== '') {
+                    document.getElementById('teacher-avatar').innerHTML = `<img src="${websiteImages.teacherImage}" alt="อาจารย์ที่ปรึกษา" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.innerHTML='👨‍🏫';">`;
+                }
+            } else if (pageId === 'contact') {
+                if (websiteImages.creator1Image && websiteImages.creator1Image.trim() !== '') {
+                    document.getElementById('creator1-avatar').innerHTML = `<img src="${websiteImages.creator1Image}" alt="ผู้จัดทำ 1" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.innerHTML='👨‍💻';">`;
+                }
+                if (websiteImages.creator2Image && websiteImages.creator2Image.trim() !== '') {
+                    document.getElementById('creator2-avatar').innerHTML = `<img src="${websiteImages.creator2Image}" alt="ผู้จัดทำ 2" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.innerHTML='👨‍💻';">`;
+                }
+            }
+            
+            window.scrollTo(0, 0);
+        }
+
+        // ==================== Render Students List ====================
+        function renderStudentsList() {
+            const container = document.getElementById('students-list');
+            container.innerHTML = '';
+            
+            studentsData.forEach(student => {
+                const card = document.createElement('div');
+                card.className = 'col-lg-3 col-md-4 col-sm-6 mb-4';
+                
+                const avatarContent = student.image && student.image.trim() !== '' 
+                    ? `<img src="${student.image}" alt="${student.name}" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.display='none'; this.parentElement.innerHTML='${student.name.includes('นางสาว') ? '👩‍🎓' : '👨‍🎓'}';">`
+                    : (student.name.includes('นางสาว') ? '👩‍🎓' : '👨‍🎓');
+                
+                card.innerHTML = `
+                    <div class="student-card text-center h-100">
+                        <div class="student-avatar">
+                            ${avatarContent}
+                        </div>
+                        <h5 class="text-white mb-1" style="font-size: 0.95rem;">${student.name}</h5>
+                        <p class="text-accent mb-3" style="font-size: 0.9rem;">ชื่อเล่น: ${student.nickname}</p>
+                        <button class="btn-portfolio btn-sm" onclick="showPortfolio(${student.id})">
+                            📄 ดู Portfolio
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // ==================== Show Individual Portfolio ====================
+        function showPortfolio(studentId) {
+            const student = studentsData.find(s => s.id === studentId);
+            if (!student) return;
+            
+            const container = document.getElementById('portfolio-content');
+            
+            const skillsHTML = student.skills.map(skill => 
+                `<span class="skill-badge">${skill}</span>`
+            ).join('');
+            
+            const worksHTML = student.works.map(work => {
+                const workImageContent = work.image && work.image.trim() !== '' 
+                    ? `<img src="${work.image}" alt="${work.name}" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.display='none'; this.parentElement.classList.add('no-image');">`
+                    : '';
+                
+                return `
+                    <div class="work-item">
+                        <h6 class="text-white mb-2">${work.name}</h6>
+                        <p class="text-accent mb-2" style="font-size: 0.85rem;">ประเภท: ${work.type}</p>
+                        <p class="text-muted-custom mb-0" style="font-size: 0.9rem;">${work.description}</p>
+                        <div class="work-image-container ${!work.image || work.image.trim() === '' ? 'no-image' : ''}">
+                            ${workImageContent}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            const avatarContent = student.image && student.image.trim() !== '' 
+                ? `<img src="${student.image}" alt="${student.name}" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.display='none'; this.parentElement.innerHTML='${student.name.includes('นางสาว') ? '👩‍🎓' : '👨‍🎓'}';">`
+                : (student.name.includes('นางสาว') ? '👩‍🎓' : '👨‍🎓');
+            
+            container.innerHTML = `
+                <div class="portfolio-detail-header">
+                    <div class="row align-items-center">
+                        <div class="col-md-3 text-center mb-3 mb-md-0">
+                            <div class="portfolio-avatar-large mx-auto">
+                                ${avatarContent}
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-9">
+                            <h2 class="text-white mb-2">${student.name}</h2>
+                            <p class="text-accent mb-3" style="font-size: 1.1rem;">ชื่อเล่น: ${student.nickname}</p>
+                            <div class="text-light-custom">
+                                <p class="mb-1"><strong>📞 เบอร์โทร:</strong> ${student.phone}</p>
+                                <p class="mb-1"><strong>🎓 ระดับชั้น/แผนก:</strong> ${student.level}</p>
+                                <p class="mb-0"><strong>💼 ความสนใจด้านวิชาชีพ:</strong> ${student.interest}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-card mb-4">
+                    <h4 class="text-accent mb-4">🛠️ ทักษะ (Skills)</h4>
+                    <div>${skillsHTML}</div>
+                </div>
+                
+                <div class="info-card">
+                    <h4 class="text-accent mb-4">📁 ผลงาน (Works / Projects)</h4>
+                    ${worksHTML}
+                    
+                    </p>
+                </div>
+            `;
+            
+            showPage('portfolio-detail');
+        }
+
+        // ==================== Update UI with Config ====================
+        function updateUI(config) {
+            const mainTitle = document.getElementById('main-title');
+            if (mainTitle) mainTitle.textContent = '🎓 ' + (config.site_title || defaultConfig.site_title);
+            
+            const schoolDisplay = document.getElementById('school-display');
+            if (schoolDisplay) schoolDisplay.textContent = config.school_name || defaultConfig.school_name;
+            
+            const aboutSchool = document.getElementById('about-school');
+            if (aboutSchool) aboutSchool.textContent = config.school_name || defaultConfig.school_name;
+            
+            const yearDisplay = document.getElementById('year-display');
+            if (yearDisplay) yearDisplay.textContent = config.academic_year || defaultConfig.academic_year;
+            
+            const aboutYear = document.getElementById('about-year');
+            if (aboutYear) aboutYear.textContent = config.academic_year || defaultConfig.academic_year;
+            
+            const contactYear = document.getElementById('contact-year');
+            if (contactYear) contactYear.textContent = config.academic_year || defaultConfig.academic_year;
+            
+            const footerYear = document.getElementById('footer-year');
+            if (footerYear) footerYear.textContent = config.academic_year || defaultConfig.academic_year;
+        }
+
+        // ==================== Element SDK Integration ====================
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig: defaultConfig,
+                onConfigChange: async (config) => {
+                    updateUI(config);
+                },
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.primary_color || defaultConfig.primary_color,
+                            set: (value) => {
+                                config.primary_color = value;
+                                window.elementSdk.setConfig({ primary_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.background_color || defaultConfig.background_color,
+                            set: (value) => {
+                                config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: undefined,
+                    fontSizeable: undefined
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["site_title", config.site_title || defaultConfig.site_title],
+                    ["school_name", config.school_name || defaultConfig.school_name],
+                    ["academic_year", config.academic_year || defaultConfig.academic_year]
+                ])
+            });
+        }
+
+        // ==================== Initialize ====================
+        renderStudentsList();
+        updateUI(defaultConfig);
+        renderImage('home-image', websiteImages.homeImage, '📸', 'รูปภาพรวมของห้อง/กิจกรรม');
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c2e1fba10b6a185',t:'MTc2OTI0Mjk1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
